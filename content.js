@@ -283,8 +283,8 @@ window.SITE = {
         "FNO"
       ],
       "zh": {
-        "title": "复平面与神经算子",
-        "subtitle": "物理信息学习 · FNO / 频谱诊断",
+        "title": "Burgers / KdV 物理分裂 FNO",
+        "subtitle": "20 步滚动预测 · 频带目标评估",
         "summary": "以复频谱的幅值与相位诊断 PDE 学习，比较 Burgers / KdV 上的物理分裂 FNO、频带目标和滚动预测表现。",
         "role": "独立研究 · 结果与研究手稿整理",
         "results": [
@@ -306,8 +306,8 @@ window.SITE = {
         "codeScope": "已公开物理步、FNO 修正、损失函数和 JVP 响应诊断等核心模块，并提供合成运行示例；未包含原始数据、训练权重和完整实验编排。"
       },
       "en": {
-        "title": "Complex Spectra & Neural Operators",
-        "subtitle": "Physics-informed learning · FNO & spectral diagnostics",
+        "title": "Physics-Split FNO for Burgers & KdV",
+        "subtitle": "20-step rollouts · Frequency-band evaluation",
         "summary": "Amplitude–phase diagnostics of complex spectra, with physics-split FNO and frequency-band objectives evaluated on Burgers and KdV rollouts.",
         "role": "Independent research · Results and manuscript in preparation",
         "results": [
@@ -507,8 +507,8 @@ window.SITE = {
       ],
       "date": "2023.05–2024.06",
       "zh": {
-        "title": "湍流射流与 DAS 监测",
-        "subtitle": "中石化合作研究 · CFD 与实验",
+        "title": "射孔射流声学与 DAS 响应",
+        "subtitle": "中石化合作项目 · LES / APE",
         "summary": "采用 LES 与声微扰模型模拟射孔射流，结合 237 组 DAS 实验数据分析流动与声学响应。",
         "role": "数值模拟与实验数据分析 · 中石化合作项目",
         "alt": "射孔射流声压扰动",
@@ -524,8 +524,8 @@ window.SITE = {
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
-        "title": "Turbulent Jets & DAS",
-        "subtitle": "Sinopec research collaboration · CFD & experiments",
+        "title": "Perforation-Jet Acoustics for DAS",
+        "subtitle": "Sinopec collaboration · LES / APE",
         "summary": "LES and acoustic perturbation modeling of perforation jets, paired with analysis of 237 DAS experiments.",
         "role": "Numerical simulation & experimental data analysis · Sinopec collaboration",
         "alt": "Acoustic pressure around perforations",
@@ -600,8 +600,8 @@ window.SITE = {
       ],
       "date": "2023–2025",
       "zh": {
-        "title": "多相流与防砂优化",
-        "subtitle": "硕士学位研究 · CFD–DEM",
+        "title": "疏松砂岩出砂与筛管优选",
+        "subtitle": "硕士论文 · Z 油田疏松砂岩 · CFD–DEM",
         "summary": "结合岩心实验、储层力学与流体–颗粒耦合模拟，分析出砂机理并比较防砂参数。",
         "role": "硕士学位论文 · 中国石油大学（北京）",
         "alt": "颗粒–流体耦合场",
@@ -617,8 +617,8 @@ window.SITE = {
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
-        "title": "Multiphase Flow & Sand Control",
-        "subtitle": "Master’s research · CFD–DEM",
+        "title": "Sand Production & Screen Selection",
+        "subtitle": "Master’s thesis · Z Oilfield sandstone · CFD–DEM",
         "summary": "Core experiments, reservoir mechanics, and coupled flow–particle simulations for sand-production analysis and screen design.",
         "role": "Master’s thesis · China University of Petroleum (Beijing)",
         "alt": "Coupled flow–particle field",
