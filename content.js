@@ -55,8 +55,8 @@ window.SITE = {
       "paperLink": "论文链接",
       "manuscriptTitle": "城市燃气管网的物理建模、降阶预测与稀疏压力感知",
       "manuscriptDescription": "模拟数据研究，手稿撰写中。",
-      "sectionExperience": "工程与软件",
-      "experienceHeading": "工程与软件",
+      "sectionExperience": "实习与工作经历",
+      "experienceHeading": "实习与工作经历",
       "experienceIntro": "科研计算工具与工程应用开发。",
       "sectionEducation": "教育背景",
       "honors": "完整奖项与专利见下方列表。",
@@ -91,7 +91,7 @@ window.SITE = {
       "cvResearch": "研究经历",
       "cvEducation": "教育背景",
       "cvPublications": "代表性论文",
-      "cvSoftware": "工程软件经历",
+      "cvSoftware": "实习与工作经历",
       "cvSkills": "专业技能",
       "cvHonors": "代表荣誉",
       "cvSkillsText": "科学计算：Python / NumPy / SciPy / PyTorch、C++、MATLAB、稀疏线性代数。<br>物理模拟：STAR-CCM+、COMSOL、LES / RANS、VOF、CFD-DEM。<br>模型与可视化：POD / Q-DEIM、GPR、GNN、Qt、React / Three.js、Git / LaTeX。",
@@ -167,8 +167,8 @@ window.SITE = {
       "paperLink": "View paper",
       "manuscriptTitle": "Physics-based modeling, reduced-order prediction, and sparse pressure sensing for gas networks",
       "manuscriptDescription": "Simulation-based study. Manuscript in preparation.",
-      "sectionExperience": "Engineering & software",
-      "experienceHeading": "Engineering & software",
+      "sectionExperience": "Internship & Work Experience",
+      "experienceHeading": "Internship & Work Experience",
       "experienceIntro": "Scientific computing tools and engineering applications.",
       "sectionEducation": "Education",
       "honors": "Full awards and patents are listed below.",
@@ -203,7 +203,7 @@ window.SITE = {
       "cvResearch": "Research experience",
       "cvEducation": "Education",
       "cvPublications": "Selected publications",
-      "cvSoftware": "Engineering software",
+      "cvSoftware": "Internship & Work Experience",
       "cvSkills": "Technical skills",
       "cvHonors": "Selected honors",
       "cvSkillsText": "Scientific computing: Python / NumPy / SciPy / PyTorch, C++, MATLAB, sparse linear algebra.<br>Simulation: STAR-CCM+, COMSOL, LES / RANS, VOF, CFD-DEM.<br>Modeling & visualization: POD / Q-DEIM, GPR, GNNs, Qt, React / Three.js, Git / LaTeX.",
@@ -810,64 +810,29 @@ window.SITE = {
   ],
   "experience": [
     {
-      "date": "2023.07–2024.02",
+      "date": "",
       "zh": {
-        "title": "油气田数据管理与生产分析",
-        "org": "中石油勘探开发研究院亚太所 · 项目负责人 / 软件开发",
-        "description": "整合生产动态资料，开发单井产能分析与预测模块；负责需求、开发、测试与文档交付。"
+        "title": "数字孪生工程师",
+        "org": "深圳燃气",
+        "description": "围绕燃气管网数字孪生项目，开展非线性水力建模、POD–GPR 降阶预测与 Q-DEIM 稀疏感知，参与三维可视化与交互模拟开发。"
       },
       "en": {
-        "title": "Field data management & production analysis",
-        "org": "CNPC research collaboration · Project lead / Software developer",
-        "description": "Integrated production records and developed well-productivity analysis and prediction tools, from requirements through testing and documentation."
-      },
-      "gallery": [
-        {
-          "src": "assets/production-prediction.webp",
-          "zh": "产能预测结果",
-          "en": "Production prediction results",
-          "source": ""
-        }
-      ]
+        "title": "Digital Twin Engineer",
+        "org": "Shenzhen Gas",
+        "description": "Worked on gas-network digital twins, including nonlinear hydraulic modelling, POD–GPR reduced-order prediction, Q-DEIM sparse sensing, and 3D visualization with interactive simulation."
+      }
     },
     {
-      "date": "2023.03–2023.08",
+      "date": "",
       "zh": {
-        "title": "地层可钻性智能预测平台",
-        "org": "中石化合作项目 · 独立软件开发",
-        "description": "以 Python / Qt / MySQL 集成传统评价模型与机器学习预测，完成桌面平台与技术文档。"
+        "title": "DAS 项目实习生",
+        "org": "中石化勘探开发研究院 · 北京",
+        "description": "参与 DAS 监测项目，开展射孔射流 CFD 与声学数值模拟、流动实验及 DAS 信号分析，使用 MATLAB 完成降噪、滤波和时频分析。"
       },
       "en": {
-        "title": "Intelligent formation drillability platform",
-        "org": "Sinopec collaboration · Independent software development",
-        "description": "Integrated engineering evaluation models and machine-learning predictions in a Python / Qt / MySQL desktop platform with technical documentation."
-      },
-      "gallery": [
-        {
-          "src": "assets/drillability-ui.webp",
-          "zh": "可钻性分析软件界面",
-          "en": "Drillability analysis interface",
-          "source": ""
-        },
-        {
-          "src": "assets/drillability-results.webp",
-          "zh": "多井预测结果",
-          "en": "Multi-well prediction results",
-          "source": ""
-        }
-      ]
-    },
-    {
-      "date": "2021.09–2022.06",
-      "zh": {
-        "title": "SWATH 船舶水动力与稳定鳍优化",
-        "org": "江苏科技大学 · 校级优秀本科毕业设计",
-        "description": "采用 RANS、VOF、重叠网格和 DFBI 计算阻力与运动响应，并与拖曳水池试验对比。"
-      },
-      "en": {
-        "title": "SWATH hydrodynamics & fin optimization",
-        "org": "Jiangsu University of Science and Technology · Outstanding graduation project",
-        "description": "Used RANS, VOF, overset meshes, and DFBI to study resistance and vessel motion, with towing-tank comparisons."
+        "title": "DAS Research Intern",
+        "org": "Sinopec Exploration and Production Research Institute · Beijing",
+        "description": "Participated in DAS monitoring research, including CFD and acoustic simulation of perforation jets, flow experiments, and DAS signal analysis using MATLAB for denoising, filtering, and time–frequency analysis."
       }
     }
   ],
@@ -877,13 +842,13 @@ window.SITE = {
       "zh": {
         "school": "中国石油大学（北京）",
         "degree": "工学硕士 · 石油与天然气工程",
-        "detail": "导师：杨进教授、孙挺教授 · GPA 3.82 / 5.0",
+        "detail": "导师：杨进教授、孙挺教授",
         "thesis": "研究：疏松砂岩地层出砂预测与防砂优化"
       },
       "en": {
         "school": "China University of Petroleum (Beijing)",
         "degree": "M.Eng. · Petroleum and Natural Gas Engineering",
-        "detail": "Advisors: Prof. Jin Yang & Prof. Ting Sun · GPA 3.82 / 5.0",
+        "detail": "Advisors: Prof. Jin Yang & Prof. Ting Sun",
         "thesis": "Research: Sand-production prediction and sand-control optimization"
       }
     },
@@ -892,13 +857,13 @@ window.SITE = {
       "zh": {
         "school": "江苏科技大学",
         "degree": "工学学士 · 船舶与海洋工程",
-        "detail": "指导教师：洪智超 · GPA 3.69 / 5.0",
+        "detail": "指导教师：洪智超",
         "thesis": "校级优秀毕业设计 · SWATH 船舶水动力研究"
       },
       "en": {
         "school": "Jiangsu University of Science and Technology",
         "degree": "B.Eng. · Ship and Ocean Engineering",
-        "detail": "Supervisor: Zhichao Hong · GPA 3.69 / 5.0",
+        "detail": "Supervisor: Zhichao Hong",
         "thesis": "University-level Outstanding Graduation Project · SWATH hydrodynamics"
       }
     }
