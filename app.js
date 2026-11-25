@@ -79,18 +79,17 @@
   function renderDialog() {
     if (!selectedProject) return;
     const p = data.projects.find(p => p.id === selectedProject), c = p[language];
-    const section = (key, body) => {
-      const sectionLanguage = key === 'mathematicalFormulation' ? ' lang="en"' : '';
-      return `<section class="project-detail-section" data-detail-section="${key}" aria-labelledby="detail-${key}"${sectionLanguage}><h3 id="detail-${key}">${t(key)}</h3>${body}</section>`;
-    };
-    const formulation = p.formulation.map(item => `
+    const section = (key, body) => `<section class="project-detail-section" data-detail-section="${key}" aria-labelledby="detail-${key}"><h3 id="detail-${key}">${t(key)}</h3>${body}</section>`;
+    const formulationItems = p.formulation || [];
+    const formulation = formulationItems.map(item => `
       <div class="formulation-item">
         <div class="project-equation" data-tex>${escapeText(item.latex)}</div>
-        <p>${mathDescription(item.description)}</p>
+        <p>${mathDescription(language === 'zh' ? item.descriptionZh : item.description)}</p>
       </div>`).join('');
+    const formulationSection = formulationItems.length ? section('mathematicalFormulation', formulation) : '';
     const results = `${resultsMarkup(p, true, false)}<p>${c.findings}</p>${galleryMarkup(p, true)}${p.publication || p.papers ? `<div class="figure-source">${t('sourceLabel')}: ${paperLinks(p)} · © 2024 OTC</div>` : ''}`;
     const dialogContent = $('#dialog-content');
-    dialogContent.innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div>${section('researchProblem', `<p>${escapeText(c.problem)}</p>`)}${section('mathematicalFormulation', formulation)}${section('methodology', `<ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><p class="method-tools">${c.methods}</p>`)}${section('resultsHeading', results)}${section('codeHeading', `<p>${escapeText(c.codeScope)}</p>${sourceLink(p)}${demoLink(p)}`)}</div>`;
+    dialogContent.innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div>${section('researchProblem', `<p>${escapeText(c.problem)}</p>`)}${formulationSection}${section('methodology', `<ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><p class="method-tools">${c.methods}</p>`)}${section('resultsHeading', results)}${section('codeHeading', `<p>${escapeText(c.codeScope)}</p>${sourceLink(p)}${demoLink(p)}`)}</div>`;
     renderFormulas(dialogContent);
   }
   function educationMarkup() {
@@ -108,9 +107,12 @@
     document.querySelector('meta[name=theme-color]')?.setAttribute('content', dark ? '#111b1b' : '#f8f9f5');
   }
   function render() {
+    const displayName = language === 'zh' ? data.profile.chineseName : data.profile.name;
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-    document.title = `${language === 'zh' ? '薛睿 Rui Xue' : 'Rui Xue'} · ${document.body.dataset.page === 'cv' ? 'Academic CV' : 'Scientific Computing'}`;
-    document.querySelector('meta[name=description]')?.setAttribute('content', language === 'zh' ? '薛睿 Rui Xue 的个人学术主页：科学计算、计算流体力学、降阶建模与科学机器学习。' : 'Rui Xue: scientific computing, computational fluid dynamics, reduced-order modeling, and scientific machine learning.');
+    document.title = `${displayName} · ${document.body.dataset.page === 'cv' ? t('cvTitle') : t('heroStatement')}`;
+    document.querySelectorAll('[data-profile-name]').forEach(element => { element.textContent = displayName; });
+    $('.brand')?.setAttribute('aria-label', `${displayName} · ${t('home')}`);
+    document.querySelector('meta[name=description]')?.setAttribute('content', language === 'zh' ? '薛睿的个人学术主页：科学计算、计算流体力学、降阶建模与科学机器学习。' : 'Rui Xue: scientific computing, computational fluid dynamics, reduced-order modeling, and scientific machine learning.');
     document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
     document.querySelectorAll('[data-alt]').forEach(el => { el.alt = t(el.dataset.alt); });
     $('#language-toggle').innerHTML = `${language === 'zh' ? 'EN' : '中文'} <span>↗</span>`;
