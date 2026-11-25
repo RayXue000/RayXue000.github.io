@@ -1,9 +1,18 @@
 (() => {
   'use strict';
   const data = window.SITE;
-  let language = 'zh', filter = 'all', selectedProject = null, toastTimer;
+  let language = 'en', filter = 'all', selectedProject = null, toastTimer;
   const selectedImages = {};
-  try { language = localStorage.getItem('rui-language') === 'en' ? 'en' : 'zh'; } catch (_) {}
+  try {
+    const requested = new URLSearchParams(location.search).get('lang');
+    const currentDefault = localStorage.getItem('rui-language-version') === '2';
+    const preferred = requested || (currentDefault ? localStorage.getItem('rui-language') : null);
+    language = preferred === 'zh' ? 'zh' : 'en';
+    if (!currentDefault) {
+      localStorage.setItem('rui-language', language);
+      localStorage.setItem('rui-language-version', '2');
+    }
+  } catch (_) {}
   const $ = (selector) => document.querySelector(selector);
   const t = (key) => data.ui[language][key] || key;
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
@@ -14,6 +23,9 @@
   }
   function demoLink(p) {
     return p.demo ? `<div class="demo-callout"><a class="demo-launch" href="${p.demo.url}?lang=${language}" target="_blank" rel="noopener noreferrer">▶ ${t('runDemo')} ↗</a><p>${t('demoNote')}</p></div>` : '';
+  }
+  function sourceLink(p) {
+    return p.code ? `<div class="project-paper-links"><a class="project-publication" href="${p.code}" target="_blank" rel="noopener noreferrer">${language === 'zh' ? '核心源码 · GitHub' : 'Core code · GitHub'}</a></div>` : '';
   }
   function embeddedDemo(p) {
     return p.demo ? `<details class="embedded-demo"><summary>${t('embedDemo')}</summary><div class="embed-heading"><span>${t('demoNote')}</span><a href="${p.demo.url}?lang=${language}" target="_blank" rel="noopener noreferrer">${t('runDemo')} ↗</a></div><iframe data-demo-src="${p.demo.url}?lang=${language}" title="${t('demoFrame')}" allow="fullscreen"></iframe></details>` : '';
@@ -43,13 +55,13 @@
     if (!$('#projects-grid')) return;
     $('#projects-grid').innerHTML = data.projects.filter(p => filter === 'all' || p.category.includes(filter)).map(p => {
       const c = p[language];
-      return `<article class="project-row" data-project="${p.id}"><div class="project-figures">${galleryMarkup(p)}</div><div class="project-content"><p class="project-subtitle">${c.subtitle}</p><h3>${c.title}</h3><p class="project-summary">${c.summary}</p>${resultsMarkup(p)}<div class="project-tags">${tags(p.tags)}</div>${demoLink(p)}<div class="project-bottom"><time>${p.date}</time><button class="project-open" type="button" data-open-project="${p.id}">${t('projectDetails')} ↗</button></div>${paperLinks(p)}</div>${embeddedDemo(p)}</article>`;
+      return `<article class="project-row" data-project="${p.id}"><div class="project-figures">${galleryMarkup(p)}</div><div class="project-content"><p class="project-subtitle">${c.subtitle}</p><h3>${c.title}</h3><p class="project-summary">${c.summary}</p>${resultsMarkup(p)}<div class="project-tags">${tags(p.tags)}</div>${demoLink(p)}<div class="project-bottom"><time>${p.date}</time><button class="project-open" type="button" data-open-project="${p.id}">${t('projectDetails')} ↗</button></div>${paperLinks(p)}${sourceLink(p)}</div>${embeddedDemo(p)}</article>`;
     }).join('');
   }
   function renderDialog() {
     if (!selectedProject) return;
     const p = data.projects.find(p => p.id === selectedProject), c = p[language];
-    $('#dialog-content').innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div><p>${c.summary}</p>${demoLink(p)}${resultsMarkup(p, true)}${galleryMarkup(p, true)}${p.publication||p.papers ? `<div class="figure-source">${t('sourceLabel')}: ${paperLinks(p)} · © 2024 OTC</div>` : ''}<h3>${t('contribution')}</h3><ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><h3>${t('methods')}</h3><p>${c.methods}</p><h3>${t('findings')}</h3><div class="scope-box">${c.findings}</div></div>`;
+    $('#dialog-content').innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div><p>${c.summary}</p>${demoLink(p)}${sourceLink(p)}${resultsMarkup(p, true)}${galleryMarkup(p, true)}${p.publication||p.papers ? `<div class="figure-source">${t('sourceLabel')}: ${paperLinks(p)} · © 2024 OTC</div>` : ''}<h3>${t('contribution')}</h3><ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><h3>${t('methods')}</h3><p>${c.methods}</p><h3>${t('findings')}</h3><div class="scope-box">${c.findings}</div></div>`;
   }
   function educationMarkup() {
     return data.education.map((e, i) => { const c = e[language]; return `<article class="education-row"><time>${e.date}</time><div><h3>${c.school}</h3><p class="education-degree">${c.degree}</p><p>${c.detail}</p><p>${c.thesis}</p></div><span class="education-number">0${i+1}</span></article>`; }).join('');

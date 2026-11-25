@@ -4,7 +4,7 @@ window.SITE = {
     "name": "Rui Xue",
     "chineseName": "薛睿",
     "email": "xr_edu2000@163.com",
-    "github": "https://github.com/xuerui-rom",
+    "github": "https://github.com/xrnb2000",
     "scholar": null,
     "portrait": "assets/portrait.webp"
   },
@@ -360,7 +360,8 @@ window.SITE = {
       ],
       "image": "assets/fno-burgers-rollout.webp",
       "detailImage": "assets/fno-burgers-rollout.webp",
-      "number": "01"
+      "number": "01",
+      "code": "https://github.com/xrnb2000/physics-split-fno"
     },
     {
       "id": "gas-network",
@@ -446,7 +447,8 @@ window.SITE = {
       ],
       "demo": {
         "url": "demos/gas-twin/index.html"
-      }
+      },
+      "code": "https://github.com/xrnb2000/gas-network-core"
     },
     {
       "id": "das-cfd",
@@ -784,7 +786,8 @@ window.SITE = {
       ],
       "number": "06",
       "image": "assets/production-forecast-well.webp",
-      "detailImage": "assets/production-forecast-well.webp"
+      "detailImage": "assets/production-forecast-well.webp",
+      "code": "https://github.com/xrnb2000/reservoir-production-ml"
     }
   ],
   "publications": [
