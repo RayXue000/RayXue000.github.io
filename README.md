@@ -1,6 +1,6 @@
 # Rui Xue — Academic Website
 
-**[Visit the website](https://xrnb2000.github.io/)**
+**[Visit the website](https://rayxue000.github.io/)**
 
 Scientific Computing · Computational Physics · Scientific Machine Learning
 
@@ -14,9 +14,9 @@ controls. GitHub Actions publishes updates to GitHub Pages.
 
 ## Selected research source
 
-- [Gas network numerical core](https://github.com/xrnb2000/gas-network-core)
-- [Physics-split FNO model core](https://github.com/xrnb2000/physics-split-fno)
-- [Reservoir production LSTM core](https://github.com/xrnb2000/reservoir-production-ml)
+- [Gas network numerical core](https://github.com/RayXue000/gas-network-core)
+- [Physics-split FNO model core](https://github.com/RayXue000/physics-split-fno)
+- [Reservoir production LSTM core](https://github.com/RayXue000/reservoir-production-ml)
 
 Each project documents the scope of its source release. Synthetic examples
 are for software checks and do not reproduce all research results.

@@ -4,7 +4,7 @@ window.SITE = {
     "name": "Rui Xue",
     "chineseName": "薛睿",
     "email": "xr_edu2000@163.com",
-    "github": "https://github.com/xrnb2000",
+    "github": "https://github.com/RayXue000",
     "scholar": null,
     "portrait": "assets/portrait.webp"
   },
@@ -375,7 +375,7 @@ window.SITE = {
       "image": "assets/fno-burgers-rollout.webp",
       "detailImage": "assets/fno-burgers-rollout.webp",
       "number": "01",
-      "code": "https://github.com/xrnb2000/physics-split-fno",
+      "code": "https://github.com/RayXue000/physics-split-fno",
       "formulation": [
         {
           "latex": "u_{n+1} = G_\\theta(u_n) = \\Psi_{K,\\Delta t}(u_n) + C_\\theta(u_n)",
@@ -478,7 +478,7 @@ window.SITE = {
       "demo": {
         "url": "demos/gas-twin/index.html"
       },
-      "code": "https://github.com/xrnb2000/gas-network-core",
+      "code": "https://github.com/RayXue000/gas-network-core",
       "formulation": [
         {
           "latex": "\\begin{aligned}\n\\sum_{e\\in\\mathcal{E}_i^{\\mathrm{in}}} Q_e - \\sum_{e\\in\\mathcal{E}_i^{\\mathrm{out}}} Q_e &= d_i, \\\\\np_u - p_v &= R_e Q_e\\lvert Q_e\\rvert,\\quad e=(u,v).\n\\end{aligned}",
@@ -881,7 +881,7 @@ window.SITE = {
       "number": "06",
       "image": "assets/production-forecast-well.webp",
       "detailImage": "assets/production-forecast-well.webp",
-      "code": "https://github.com/xrnb2000/reservoir-production-ml",
+      "code": "https://github.com/RayXue000/reservoir-production-ml",
       "formulation": [
         {
           "latex": "\\mathbf{X}_t = (\\mathbf{z}_{t-T+1},\\ldots,\\mathbf{z}_t),\\qquad \\hat{y}_{t+1}=f_\\theta(\\mathbf{X}_t)",
