@@ -809,8 +809,8 @@ window.SITE = {
         "subtitle": "本科毕业设计 · 江苏科技大学",
         "summary": "围绕带首尾鳍小水线面双体船，比较静水与规则波中的阻力、垂荡和纵摇响应，研究稳定鳍攻角组合对航行性能的影响。",
         "role": "本科毕业设计《带首尾鳍小水线面双体船设计》· 指导教师：洪智超",
-        "alt": "规则波工况 A6 的自由液面压力场",
-        "caption": "规则波工况 A6 的自由液面压力场",
+        "alt": "规则波工况 A6 的自由液面波形",
+        "caption": "规则波工况 A6 的自由液面波形",
         "results": [
           "首鳍 6° / 尾鳍 −3°：阻力周期幅值 10.510 N、纵摇角周期幅值 0.213°，均为四组规则波工况中的最小值。",
           "不同目标对应不同组合：4° / −4° 的平均总阻力最低（25.234 N）；2° / −3° 的平均纵摇角最低（0.059°）。"
@@ -829,8 +829,8 @@ window.SITE = {
         "subtitle": "B.Eng. thesis · Jiangsu University of Science and Technology",
         "summary": "CFD study of a small-waterplane-area twin-hull vessel with bow and stern fins, comparing resistance, heave and pitch in calm water and regular waves.",
         "role": "B.Eng. thesis: Design of SWATH with Stabilizing Fins · Supervisor: Zhichao Hong",
-        "alt": "Free-surface pressure field in regular-wave case A6",
-        "caption": "Free-surface pressure field in regular-wave case A6",
+        "alt": "Free-surface elevation in regular-wave case A6",
+        "caption": "Free-surface elevation in regular-wave case A6",
         "results": [
           "Bow 6° / stern −3°: the lowest cyclic resistance amplitude (10.510 N) and pitch amplitude (0.213°) among the four regular-wave cases.",
           "The objectives favor different settings: 4° / −4° gives the lowest mean total resistance (25.234 N), while 2° / −3° gives the lowest mean pitch (0.059°)."
@@ -847,8 +847,8 @@ window.SITE = {
       "gallery": [
         {
           "src": "assets/swath-wave-field.webp",
-          "zh": "规则波工况 A6 的自由液面压力场",
-          "en": "Free-surface pressure field in regular-wave case A6",
+          "zh": "规则波工况 A6 的自由液面波形",
+          "en": "Free-surface elevation in regular-wave case A6",
           "source": "B.Eng. thesis · Fig. 5.8(b)"
         },
         {
