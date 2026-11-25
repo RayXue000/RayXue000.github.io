@@ -1,0 +1,434 @@
+{
+  "case_id": "fuying",
+  "name": "富盈小区低压庭院管网",
+  "units": {
+    "length": "m",
+    "diameter": "mm",
+    "pressure": "Pa(gauge)",
+    "flow": "Nm3/h"
+  },
+  "coordinate_note": "无GIS坐标，平面位置由真实管长树状展开生成，标记为 assumed_layout",
+  "assumed_burial_depth_m": 1.2,
+  "regulator": {
+    "node_id": "B",
+    "set_pressure_gauge_pa": 2800.0,
+    "rated_flow_nm3_h": 65.0,
+    "droop_pa_per_nm3_h": 2.0,
+    "min_outlet_pressure_gauge_pa": 1500.0
+  },
+  "nodes": [
+    {
+      "id": "B",
+      "type": "source",
+      "x_m": 0.0,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2800.0
+    },
+    {
+      "id": "T0",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2783.7
+    },
+    {
+      "id": "T1",
+      "type": "junction",
+      "x_m": 21.82,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2732.1
+    },
+    {
+      "id": "T2",
+      "type": "junction",
+      "x_m": 28.96,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2717.4
+    },
+    {
+      "id": "T3",
+      "type": "junction",
+      "x_m": 41.84,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2697.1
+    },
+    {
+      "id": "T4",
+      "type": "junction",
+      "x_m": 50.2,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2687.5
+    },
+    {
+      "id": "T5",
+      "type": "junction",
+      "x_m": 84.61,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2659.8
+    },
+    {
+      "id": "T6",
+      "type": "junction",
+      "x_m": 99.06,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": 2648.7
+    },
+    {
+      "id": "T7",
+      "type": "junction",
+      "x_m": 84.61,
+      "y_m": -29.66,
+      "baseline_pressure_gauge_pa": 2651.3
+    },
+    {
+      "id": "T8",
+      "type": "junction",
+      "x_m": 84.61,
+      "y_m": -60.09,
+      "baseline_pressure_gauge_pa": 2647.4
+    },
+    {
+      "id": "T11",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": -66.33,
+      "baseline_pressure_gauge_pa": 2721.4
+    },
+    {
+      "id": "T12",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": -53.51,
+      "baseline_pressure_gauge_pa": 2723.0
+    },
+    {
+      "id": "T13",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": -43.75,
+      "baseline_pressure_gauge_pa": 2725.8
+    },
+    {
+      "id": "T14",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": -33.87,
+      "baseline_pressure_gauge_pa": 2733.8
+    },
+    {
+      "id": "T15",
+      "type": "junction",
+      "x_m": -9.25,
+      "y_m": -43.75,
+      "baseline_pressure_gauge_pa": 2717.1
+    },
+    {
+      "id": "T16",
+      "type": "junction",
+      "x_m": 1.98,
+      "y_m": -25.83,
+      "baseline_pressure_gauge_pa": 2743.1
+    },
+    {
+      "id": "R1",
+      "type": "riser",
+      "x_m": 21.82,
+      "y_m": 1.5,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R2",
+      "type": "riser",
+      "x_m": 28.96,
+      "y_m": 6.76,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R3",
+      "type": "riser",
+      "x_m": 41.84,
+      "y_m": 6.76,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R4",
+      "type": "riser",
+      "x_m": 50.2,
+      "y_m": 1.5,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R5",
+      "type": "riser",
+      "x_m": 100.56,
+      "y_m": 0.0,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R6",
+      "type": "riser",
+      "x_m": 99.06,
+      "y_m": -16.23,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R7",
+      "type": "riser",
+      "x_m": 86.11,
+      "y_m": -29.66,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R8",
+      "type": "riser",
+      "x_m": 84.61,
+      "y_m": -61.59,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R9",
+      "type": "riser",
+      "x_m": 75.79,
+      "y_m": -60.09,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R10",
+      "type": "riser",
+      "x_m": 1.98,
+      "y_m": -75.1,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R11",
+      "type": "riser",
+      "x_m": 3.48,
+      "y_m": -66.33,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R12",
+      "type": "riser",
+      "x_m": 0.48,
+      "y_m": -53.51,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R13",
+      "type": "riser",
+      "x_m": -20.3,
+      "y_m": -43.75,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R14",
+      "type": "riser",
+      "x_m": 0.48,
+      "y_m": -33.87,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R15",
+      "type": "riser",
+      "x_m": -9.25,
+      "y_m": -54.8,
+      "baseline_pressure_gauge_pa": null
+    },
+    {
+      "id": "R16",
+      "type": "riser",
+      "x_m": 0.48,
+      "y_m": -25.83,
+      "baseline_pressure_gauge_pa": null
+    }
+  ],
+  "pipes": [
+    {
+      "from": "B",
+      "to": "T0",
+      "length_m": 1.98,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T0",
+      "to": "T1",
+      "length_m": 19.84,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T0",
+      "to": "T16",
+      "length_m": 25.83,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T1",
+      "to": "T2",
+      "length_m": 7.14,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T1",
+      "to": "R1",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T2",
+      "to": "T3",
+      "length_m": 12.88,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T2",
+      "to": "R2",
+      "length_m": 6.76,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T3",
+      "to": "T4",
+      "length_m": 8.36,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T3",
+      "to": "R3",
+      "length_m": 6.76,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T4",
+      "to": "T5",
+      "length_m": 34.41,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T4",
+      "to": "R4",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T5",
+      "to": "T6",
+      "length_m": 14.45,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T5",
+      "to": "T7",
+      "length_m": 29.66,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T6",
+      "to": "R5",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T6",
+      "to": "R6",
+      "length_m": 16.23,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T7",
+      "to": "T8",
+      "length_m": 30.43,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T7",
+      "to": "R7",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T8",
+      "to": "R8",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T8",
+      "to": "R9",
+      "length_m": 8.82,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T11",
+      "to": "T12",
+      "length_m": 12.82,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T11",
+      "to": "R10",
+      "length_m": 8.77,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T11",
+      "to": "R11",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T12",
+      "to": "T13",
+      "length_m": 9.76,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T12",
+      "to": "R12",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T13",
+      "to": "T14",
+      "length_m": 9.88,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T13",
+      "to": "T15",
+      "length_m": 11.23,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T14",
+      "to": "T16",
+      "length_m": 8.04,
+      "inner_diameter_mm": 73.6
+    },
+    {
+      "from": "T14",
+      "to": "R14",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T15",
+      "to": "R13",
+      "length_m": 11.05,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T15",
+      "to": "R15",
+      "length_m": 11.05,
+      "inner_diameter_mm": 51.4
+    },
+    {
+      "from": "T16",
+      "to": "R16",
+      "length_m": 1.5,
+      "inner_diameter_mm": 51.4
+    }
+  ],
+  "baseline_source": "P_results_legacy.csv（旧版回归参考，非现场真值）"
+}
