@@ -40,13 +40,13 @@
     return papers.length ? `<div class="project-paper-links">${papers.map(paper=>`<a class="project-publication" href="${paper.url}" target="_blank" rel="noopener noreferrer">${paper.label} ↗</a>`).join('')}</div>` : '';
   }
   function demoLink(p) {
-    return p.demo ? `<div class="demo-callout"><a class="demo-launch" href="${p.demo.url}?lang=${language}" target="_blank" rel="noopener noreferrer">▶ ${t('runDemo')} ↗</a><p>${t('demoNote')}</p></div>` : '';
+    return p.demo ? `<div class="demo-callout"><a class="demo-launch" href="${p.demo.url}?lang=${language}&v=generic-network" target="_blank" rel="noopener noreferrer">▶ ${t('runDemo')} ↗</a><p>${t('demoNote')}</p></div>` : '';
   }
   function sourceLink(p) {
     return p.code ? `<div class="project-paper-links"><a class="project-publication" href="${p.code}" target="_blank" rel="noopener noreferrer">${language === 'zh' ? '核心源码 · GitHub' : 'Core code · GitHub'}</a></div>` : '';
   }
   function embeddedDemo(p) {
-    return p.demo ? `<details class="embedded-demo"><summary>${t('embedDemo')}</summary><div class="embed-heading"><span>${t('demoNote')}</span><a href="${p.demo.url}?lang=${language}" target="_blank" rel="noopener noreferrer">${t('runDemo')} ↗</a></div><iframe data-demo-src="${p.demo.url}?lang=${language}" title="${t('demoFrame')}" allow="fullscreen"></iframe></details>` : '';
+    return p.demo ? `<details class="embedded-demo"><summary>${t('embedDemo')}</summary><div class="embed-heading"><span>${t('demoNote')}</span><a href="${p.demo.url}?lang=${language}&v=generic-network" target="_blank" rel="noopener noreferrer">${t('runDemo')} ↗</a></div><iframe data-demo-src="${p.demo.url}?lang=${language}&v=generic-network" title="${t('demoFrame')}" allow="fullscreen"></iframe></details>` : '';
   }
   function renderCredentials() {
     const awards = () => data.awards.map(g=>`<section class="award-group"><h3>${g[language]}</h3><ul class="award-list">${g.items.map(i=>`<li><span>${i[language]}</span><time>${i.year}</time></li>`).join('')}</ul></section>`).join('');

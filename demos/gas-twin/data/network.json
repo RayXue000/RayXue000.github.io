@@ -1,6 +1,6 @@
 {
-  "case_id": "fuying",
-  "name": "富盈小区低压庭院管网",
+  "case_id": "gas-network-demo",
+  "name": "低压庭院管网演示模型",
   "units": {
     "length": "m",
     "diameter": "mm",

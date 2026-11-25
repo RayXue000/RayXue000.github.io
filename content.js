@@ -395,8 +395,8 @@ window.SITE = {
       "category": [
         "sciml"
       ],
-      "image": "assets/gas-live-monitor.webp",
-      "detailImage": "assets/gas-live-monitor.webp",
+      "image": "assets/gas-network.webp",
+      "detailImage": "assets/gas-network.webp",
       "tags": [
         "POD–GPR",
         "Q-DEIM",
@@ -408,8 +408,8 @@ window.SITE = {
         "subtitle": "深圳燃气 · 数字孪生工程师",
         "summary": "构建非线性管网模型，结合 POD–GPR 降阶预测、Q-DEIM 稀疏感知与三维可视化，研究管网压力状态。",
         "role": "深圳燃气 · 数字孪生工程师",
-        "alt": "管网拓扑与压力场",
-        "caption": "原项目中的 Q-DEIM 测点布置及压力重构结果。",
+        "alt": "32 节点管网拓扑示意",
+        "caption": "32 节点管网拓扑示意",
         "work": [
           "将社区燃气管网抽象为图结构，构建质量守恒与管段阻力关系，并实现非线性水力求解。",
           "用 2,000 组模拟工况构建数据集，仅在 1,600 组训练工况上生成 POD 基底；400 组工况独立留出。",
@@ -425,8 +425,8 @@ window.SITE = {
         "subtitle": "Shenzhen Gas · Digital Twin Engineer",
         "summary": "Nonlinear hydraulic modeling, POD–GPR prediction, Q-DEIM sensing, and 3D visualization for network pressure estimation.",
         "role": "Shenzhen Gas · Digital Twin Engineer",
-        "alt": "Network topology & pressure field",
-        "caption": "Q-DEIM sensor placement and reconstruction results from the original project.",
+        "alt": "32-node gas-network topology",
+        "caption": "32-node gas-network topology",
         "work": [
           "Represented a community gas network as a graph and implemented nonlinear hydraulic solution using mass balance and pipe resistance.",
           "Constructed 2,000 simulated scenarios with a training-only POD basis from 1,600 cases and 400 held-out tests.",
@@ -439,21 +439,9 @@ window.SITE = {
       },
       "gallery": [
         {
-          "src": "assets/gas-live-monitor.webp",
-          "zh": "交互模拟：三维管网与压力监测",
-          "en": "Interactive simulation: 3D network & pressure monitoring",
-          "source": "Browser simulation demo"
-        },
-        {
-          "src": "assets/gas-live-peak.webp",
-          "zh": "交互模拟：晚高峰工况",
-          "en": "Interactive simulation: peak-demand scenario",
-          "source": "Browser simulation demo"
-        },
-        {
           "src": "assets/gas-network.webp",
-          "zh": "管网拓扑与压力场",
-          "en": "Network topology & pressure field",
+          "zh": "32 节点管网拓扑示意",
+          "en": "32-node gas-network topology",
           "source": ""
         },
         {
