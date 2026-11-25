@@ -788,6 +788,106 @@ window.SITE = {
       "image": "assets/production-forecast-well.webp",
       "detailImage": "assets/production-forecast-well.webp",
       "code": "https://github.com/xrnb2000/reservoir-production-ml"
+    },
+    {
+      "id": "swath-fin-design",
+      "number": "07",
+      "category": [
+        "simulation"
+      ],
+      "image": "assets/swath-wave-field.webp",
+      "detailImage": "assets/swath-wave-field.webp",
+      "tags": [
+        "RANS / VOF",
+        "Overset Mesh",
+        "DFBI",
+        "SWATH"
+      ],
+      "date": "2022",
+      "zh": {
+        "title": "SWATH 水动力与稳定鳍优化",
+        "subtitle": "本科毕业设计 · 江苏科技大学",
+        "summary": "围绕带首尾鳍小水线面双体船，比较静水与规则波中的阻力、垂荡和纵摇响应，研究稳定鳍攻角组合对航行性能的影响。",
+        "role": "本科毕业设计《带首尾鳍小水线面双体船设计》· 指导教师：洪智超",
+        "alt": "规则波工况 A6 的自由液面压力场",
+        "caption": "规则波工况 A6 的自由液面压力场",
+        "results": [
+          "首鳍 6° / 尾鳍 −3°：阻力周期幅值 10.510 N、纵摇角周期幅值 0.213°，均为四组规则波工况中的最小值。",
+          "不同目标对应不同组合：4° / −4° 的平均总阻力最低（25.234 N）；2° / −3° 的平均纵摇角最低（0.059°）。"
+        ],
+        "resultScope": "本科论文的模型尺度数值结果：缩尺比 1:20，Fr = 0.311，波长比 1.5、模型波幅 0.05 m；结论限于所比较的四组规则波工况。",
+        "work": [
+          "在 STAR-CCM+ 中建立无鳍及带首尾稳定鳍的 SWATH 模型，采用 RANS、VOF、重叠网格与 DFBI 方法模拟船体运动。",
+          "分析静水阻力及运动响应，并与论文采用的试验阻力参照值对比；细化自由液面、船体与稳定鳍周围网格。",
+          "比较四组首尾鳍攻角组合在规则波下的阻力、垂荡和纵摇，统计 30–50 s 时间窗内的平均值与周期幅值。"
+        ],
+        "methods": "STAR-CCM+ · RANS / VOF · Overset Mesh · DFBI · 阻力分解 · 垂荡 / 纵摇响应分析",
+        "findings": "规则波下，6° / −3° 组合的阻力和纵摇周期幅值最小，但最低平均阻力与最低平均纵摇角分别对应另外两组攻角。稳定鳍设计需要结合阻力与运动响应目标权衡；不能将某一指标的最优组合视为所有工况的统一最优。静水与规则波结果分别讨论。"
+      },
+      "en": {
+        "title": "SWATH Hydrodynamics & Fin Design",
+        "subtitle": "B.Eng. thesis · Jiangsu University of Science and Technology",
+        "summary": "CFD study of a small-waterplane-area twin-hull vessel with bow and stern fins, comparing resistance, heave and pitch in calm water and regular waves.",
+        "role": "B.Eng. thesis: Design of SWATH with Stabilizing Fins · Supervisor: Zhichao Hong",
+        "alt": "Free-surface pressure field in regular-wave case A6",
+        "caption": "Free-surface pressure field in regular-wave case A6",
+        "results": [
+          "Bow 6° / stern −3°: the lowest cyclic resistance amplitude (10.510 N) and pitch amplitude (0.213°) among the four regular-wave cases.",
+          "The objectives favor different settings: 4° / −4° gives the lowest mean total resistance (25.234 N), while 2° / −3° gives the lowest mean pitch (0.059°)."
+        ],
+        "resultScope": "Model-scale simulations from the undergraduate thesis: scale 1:20, Fr = 0.311, wavelength-to-length ratio 1.5 and model wave amplitude 0.05 m. Results are limited to the four regular-wave cases compared.",
+        "work": [
+          "Built bare-hull and fin-equipped SWATH models in STAR-CCM+, using RANS, VOF, overset meshes and DFBI for vessel-motion simulations.",
+          "Analyzed calm-water resistance and motions, compared resistance with the experimental references used in the thesis, and refined the free-surface, hull and fin meshes.",
+          "Compared four bow/stern fin-angle combinations in regular waves, evaluating resistance, heave and pitch means and cyclic amplitudes over the 30–50 s window."
+        ],
+        "methods": "STAR-CCM+ · RANS / VOF · Overset Mesh · DFBI · Resistance decomposition · Heave / pitch response analysis",
+        "findings": "In the tested regular waves, 6° / −3° minimizes cyclic resistance and pitch amplitudes, while the lowest mean resistance and mean pitch occur at other angles. Fin design therefore involves a trade-off between resistance and motion objectives. A setting favored by one metric is not a universal optimum. Calm-water and regular-wave results are treated separately."
+      },
+      "gallery": [
+        {
+          "src": "assets/swath-wave-field.webp",
+          "zh": "规则波工况 A6 的自由液面压力场",
+          "en": "Free-surface pressure field in regular-wave case A6",
+          "source": "B.Eng. thesis · Fig. 5.8(b)"
+        },
+        {
+          "src": "assets/swath-hull.webp",
+          "zh": "带首尾稳定鳍的 SWATH 船型",
+          "en": "SWATH hull with bow and stern stabilizing fins",
+          "source": "Original project figure"
+        },
+        {
+          "src": "assets/swath-mesh.webp",
+          "zh": "重叠网格与首尾鳍局部加密",
+          "en": "Overset mesh and local refinement around the fins",
+          "source": "Original project figure"
+        },
+        {
+          "src": "assets/swath-validation.webp",
+          "zh": "静水工况的数值阻力与试验参照值对比",
+          "en": "Calm-water resistance: simulation and experimental reference",
+          "source": "B.Eng. thesis · Fig. 4.8"
+        },
+        {
+          "src": "assets/swath-mean-resistance.webp",
+          "zh": "四组稳定鳍攻角的波浪平均阻力对比",
+          "en": "Mean wave resistance across four fin-angle combinations",
+          "source": "B.Eng. thesis · Fig. 5.6"
+        },
+        {
+          "src": "assets/swath-resistance-amplitude.webp",
+          "zh": "四组稳定鳍攻角的阻力周期幅值",
+          "en": "Cyclic resistance amplitudes across four fin-angle combinations",
+          "source": "B.Eng. thesis · Fig. 5.7"
+        },
+        {
+          "src": "assets/swath-mean-pitch.webp",
+          "zh": "四组稳定鳍攻角的平均纵摇角",
+          "en": "Mean pitch across four fin-angle combinations",
+          "source": "B.Eng. thesis · Fig. 5.10(d)"
+        }
+      ]
     }
   ],
   "publications": [
