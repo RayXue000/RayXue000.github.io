@@ -18,6 +18,23 @@
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const tags = (items) => items.map(item => `<span>${item}</span>`).join('');
   const escapeText = (value) => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  function mathDescription(description) {
+    return description.split(/\\\(([\s\S]*?)\\\)/).map((part, index) => {
+      const text = escapeText(part);
+      return index % 2 ? `<span data-tex>${text}</span>` : text;
+    }).join('');
+  }
+  function renderFormulas(container) {
+    if (!window.katex) return;
+    for (const element of container.querySelectorAll('[data-tex]')) {
+      window.katex.render(element.textContent, element, {
+        displayMode: element.classList.contains('project-equation'),
+        output: 'htmlAndMathml',
+        throwOnError: false,
+        trust: false
+      });
+    }
+  }
   function paperLinks(p) {
     const papers = p.papers || (p.publication ? [{label:t('paperLink')+' · DOI',url:p.publication}] : []);
     return papers.length ? `<div class="project-paper-links">${papers.map(paper=>`<a class="project-publication" href="${paper.url}" target="_blank" rel="noopener noreferrer">${paper.label} ↗</a>`).join('')}</div>` : '';
@@ -62,10 +79,19 @@
   function renderDialog() {
     if (!selectedProject) return;
     const p = data.projects.find(p => p.id === selectedProject), c = p[language];
-    const section = (key, body) => `<section class="project-detail-section" data-detail-section="${key}" aria-labelledby="detail-${key}"><h3 id="detail-${key}">${t(key)}</h3>${body}</section>`;
-    const formulation = c.formulation.map(item => `<div class="formulation-item"><p class="project-equation">${escapeText(item.equation)}</p><p>${escapeText(item.description)}</p></div>`).join('');
+    const section = (key, body) => {
+      const sectionLanguage = key === 'mathematicalFormulation' ? ' lang="en"' : '';
+      return `<section class="project-detail-section" data-detail-section="${key}" aria-labelledby="detail-${key}"${sectionLanguage}><h3 id="detail-${key}">${t(key)}</h3>${body}</section>`;
+    };
+    const formulation = p.formulation.map(item => `
+      <div class="formulation-item">
+        <div class="project-equation" data-tex>${escapeText(item.latex)}</div>
+        <p>${mathDescription(item.description)}</p>
+      </div>`).join('');
     const results = `${resultsMarkup(p, true, false)}<p>${c.findings}</p>${galleryMarkup(p, true)}${p.publication || p.papers ? `<div class="figure-source">${t('sourceLabel')}: ${paperLinks(p)} · © 2024 OTC</div>` : ''}`;
-    $('#dialog-content').innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div>${section('researchProblem', `<p>${escapeText(c.problem)}</p>`)}${section('mathematicalFormulation', formulation)}${section('methodology', `<ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><p class="method-tools">${c.methods}</p>`)}${section('resultsHeading', results)}${section('codeHeading', `<p>${escapeText(c.codeScope)}</p>${sourceLink(p)}${demoLink(p)}`)}</div>`;
+    const dialogContent = $('#dialog-content');
+    dialogContent.innerHTML = `<div class="dialog-body"><div class="eyebrow">${p.date} / ${c.subtitle}</div><h2 id="dialog-title">${c.title}</h2><p class="dialog-role">${c.role}</p><div class="project-tags">${tags(p.tags)}</div>${section('researchProblem', `<p>${escapeText(c.problem)}</p>`)}${section('mathematicalFormulation', formulation)}${section('methodology', `<ul>${c.work.map(w => `<li>${w}</li>`).join('')}</ul><p class="method-tools">${c.methods}</p>`)}${section('resultsHeading', results)}${section('codeHeading', `<p>${escapeText(c.codeScope)}</p>${sourceLink(p)}${demoLink(p)}`)}</div>`;
+    renderFormulas(dialogContent);
   }
   function educationMarkup() {
     return data.education.map((e, i) => { const c = e[language]; return `<article class="education-row"><time>${e.date}</time><div><h3>${c.school}</h3><p class="education-degree">${c.degree}</p><p>${c.detail}</p><p>${c.thesis}</p></div><span class="education-number">0${i+1}</span></article>`; }).join('');

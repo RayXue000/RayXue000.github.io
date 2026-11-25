@@ -121,7 +121,7 @@ window.SITE = {
       "paperResults": "两项研究",
       "backToSite": "返回学术主页",
       "researchProblem": "研究问题 · Research Problem",
-      "mathematicalFormulation": "数学表述 · Mathematical Formulation",
+      "mathematicalFormulation": "Mathematical Formulation",
       "methodology": "研究方法 · Methodology",
       "resultsHeading": "研究结果 · Results",
       "codeHeading": "源码 · Code"
@@ -303,16 +303,6 @@ window.SITE = {
         "findings": "在冻结配置下，物理分裂配置在四个 PDE–模态单元的末时刻滚动误差均低于普通 FNO；但两者初始化存在差异，不能把全部差值解释为物理先验的单一因果收益。原始频带目标在三个单元退化，Burgers 32 模态接近中性；截断分母没有带来跨 PDE、跨模态的稳定修复。这些结论限于给定数据、3 个种子与固定训练预算，不构成跨 PDE 的普遍优势结论。",
         "alt": "Burgers 解场与绝对误差：种子 4，固定示例轨迹",
         "problem": "物理先验如何与神经算子结合，改善 PDE 的多步滚动预测？这项研究进一步检验复频谱幅相目标在不同 PDE、模态数和固定训练预算下是否稳定有效。",
-        "formulation": [
-          {
-            "equation": "uₙ₊₁ = Gθ(uₙ) = ΨK,Δt(uₙ) + Cθ(uₙ)",
-            "description": "ΨK,Δt 是可微的已知物理一步映射，Cθ 是学习得到的 Fourier 修正项；完整映射按时间自回归滚动。"
-          },
-          {
-            "equation": "r(u, v) = DGθ(u)[v]",
-            "description": "通过输入方向 v 的 Jacobian–向量积估计局部 Fourier 响应，并分析复响应的幅值与相位；数据误差、耗散及色散目标在给定配置下比较。"
-          }
-        ],
         "codeScope": "已公开物理步、FNO 修正、损失函数和 JVP 响应诊断等核心模块，并提供合成运行示例；未包含原始数据、训练权重和完整实验编排。"
       },
       "en": {
@@ -336,16 +326,6 @@ window.SITE = {
         "findings": "Under the frozen configurations, physics-split FNO had lower final-rollout error than plain FNO in all four PDE–mode cells. Initialization also differs, so the gap is not an isolated causal effect of the physical prior. The original band objective degraded three cells and was mixed near neutrality for Burgers at 32 modes. Denominator capping did not provide consistent recovery across PDEs and mode counts. Results apply to the stated data, three seeds, and fixed training budget; they do not establish a universal advantage.",
         "alt": "Burgers fields & absolute errors: seed 4, fixed example trajectory",
         "problem": "How can known physics be combined with neural operators for multi-step PDE prediction? The study also tests whether complex spectral amplitude/phase objectives remain effective across PDEs, mode counts and a fixed training budget.",
-        "formulation": [
-          {
-            "equation": "uₙ₊₁ = Gθ(uₙ) = ΨK,Δt(uₙ) + Cθ(uₙ)",
-            "description": "ΨK,Δt is a differentiable known-physics step and Cθ is a learned Fourier correction. The complete mapping is rolled out autoregressively."
-          },
-          {
-            "equation": "r(u, v) = DGθ(u)[v]",
-            "description": "Input Jacobian–vector products along probes v estimate local Fourier responses for amplitude/phase diagnostics. Data, dissipation and dispersion objectives are compared under specified configurations."
-          }
-        ],
         "codeScope": "The public subset includes physics steps, Fourier corrections, losses, JVP diagnostics and a synthetic example. Original data, trained weights and complete experiment orchestration are excluded."
       },
       "comparison": [
@@ -395,7 +375,17 @@ window.SITE = {
       "image": "assets/fno-burgers-rollout.webp",
       "detailImage": "assets/fno-burgers-rollout.webp",
       "number": "01",
-      "code": "https://github.com/xrnb2000/physics-split-fno"
+      "code": "https://github.com/xrnb2000/physics-split-fno",
+      "formulation": [
+        {
+          "latex": "u_{n+1} = G_\\theta(u_n) = \\Psi_{K,\\Delta t}(u_n) + C_\\theta(u_n)",
+          "description": "\\(\\Psi_{K,\\Delta t}\\) advances the known physics by one time step, and \\(C_\\theta\\) is the learned Fourier correction. The model is applied autoregressively to predict subsequent states."
+        },
+        {
+          "latex": "r(u,v) = \\mathrm{D}G_\\theta(u)[v]",
+          "description": "The Jacobian–vector product along a probe \\(v\\) estimates the local Fourier response. The study analyzes its amplitude and phase to compare data, dissipation, and dispersion objectives."
+        }
+      ]
     },
     {
       "id": "gas-network",
@@ -426,16 +416,6 @@ window.SITE = {
         "methods": "Python / NumPy / SciPy · Newton–Raphson · POD / SVD · Gaussian processes · Q-DEIM · Three.js",
         "findings": "在既定模拟分布上，POD–GPR 压力 RMSE 为 4.59 Pa；5 个测点重构 16 个底座压力的 RMSE 为 6.16 Pa。这些是模拟测试结果。固定管阻树网的精确直接解具有更强的计算基线；现场校准、在线更新和可靠不确定性区间仍需验证。",
         "problem": "如何用物理管网模型诊断末端欠压，并在有限测点下估计全网压力状态？研究将非线性水力求解与降阶代理、稀疏感知结合，用于模拟工况下的预测和重构。",
-        "formulation": [
-          {
-            "equation": "Σ Q入 − Σ Q出 = dᵢ;     pᵤ − pᵥ = Rₑ Qₑ |Qₑ|",
-            "description": "节点满足质量守恒，管段压力差与有向流量通过阻力关系耦合；dᵢ 为节点用气需求，Rₑ 为管段阻力系数。"
-          },
-          {
-            "equation": "p ≈ p̄ + Φᵣ a;     y = C p",
-            "description": "用训练工况构建 POD 基底 Φᵣ，以 GPR 预测降阶系数 a；C 表示测点选择，稀疏测量 y 用于压力场重构。"
-          }
-        ],
         "codeScope": "已公开管阻、调压器、树网与 Newton 求解器以及 POD/GPR 内核，附合成算例与测试。公开仓库不含现场数据，也不包含完整三维前端源码；交互演示可单独运行。"
       },
       "en": {
@@ -453,16 +433,6 @@ window.SITE = {
         "methods": "Python / NumPy / SciPy · Newton–Raphson · POD / SVD · Gaussian processes · Q-DEIM · Three.js",
         "findings": "On the prescribed simulation distribution, POD–GPR achieved 4.59 Pa pressure RMSE; reconstruction of 16 riser-base pressures from five measurements achieved 6.16 Pa RMSE. These are simulation results. An exact direct solver is a stronger computational baseline for the fixed-friction tree case. Field calibration, online updates, and reliable uncertainty intervals remain to be validated.",
         "problem": "How can a physical network model diagnose low downstream pressure and estimate network-wide pressure from a few sensors? The study combines nonlinear hydraulics, reduced-order prediction and sparse sensing for simulated operating conditions.",
-        "formulation": [
-          {
-            "equation": "Σ Qᵢₙ − Σ Qₒᵤₜ = dᵢ;     pᵤ − pᵥ = Rₑ Qₑ |Qₑ|",
-            "description": "Nodal continuity couples to a signed pipe pressure–flow relation. dᵢ denotes demand and Rₑ the pipe resistance coefficient."
-          },
-          {
-            "equation": "p ≈ p̄ + Φᵣ a;     y = C p",
-            "description": "A training-only POD basis Φᵣ represents pressure. GPR predicts coefficients a, while the sensor-selection matrix C defines sparse measurements y for reconstruction."
-          }
-        ],
         "codeScope": "The public subset contains physical components, tree/Newton solvers, POD/GPR kernels, synthetic examples and tests. Field data and the complete 3D frontend source are excluded; the interactive demonstration is available separately."
       },
       "gallery": [
@@ -506,7 +476,17 @@ window.SITE = {
       "demo": {
         "url": "demos/gas-twin/index.html"
       },
-      "code": "https://github.com/xrnb2000/gas-network-core"
+      "code": "https://github.com/xrnb2000/gas-network-core",
+      "formulation": [
+        {
+          "latex": "\\begin{aligned}\n\\sum_{e\\in\\mathcal{E}_i^{\\mathrm{in}}} Q_e - \\sum_{e\\in\\mathcal{E}_i^{\\mathrm{out}}} Q_e &= d_i, \\\\\np_u - p_v &= R_e Q_e\\lvert Q_e\\rvert,\\quad e=(u,v).\n\\end{aligned}",
+          "description": "Flow rates \\(Q_e\\) are signed relative to each pipe’s orientation. Nodal continuity balances demand \\(d_i\\), and each pressure drop is governed by the pipe resistance \\(R_e\\)."
+        },
+        {
+          "latex": "\\mathbf{p} \\approx \\bar{\\mathbf{p}} + \\mathbf{\\Phi}_r\\mathbf{a},\\qquad \\mathbf{y} = \\mathbf{C}\\mathbf{p}",
+          "description": "A POD basis \\(\\mathbf{\\Phi}_r\\) fitted to training snapshots represents the pressure field. GPR predicts the reduced coefficients \\(\\mathbf{a}\\). The selection matrix \\(\\mathbf{C}\\) defines the pressure measurements \\(\\mathbf{y}\\) used for reconstruction."
+        }
+      ]
     },
     {
       "id": "das-cfd",
@@ -537,16 +517,6 @@ window.SITE = {
         "methods": "STAR-CCM+ · LES / APE · MATLAB · FFT · Wavelet packet denoising",
         "findings": "分析不同流量、射孔与簇配置下的声学响应，为由 DAS 信号推断非均匀进液提供数值与实验依据。相关关系的适用范围受试验工况与传感条件限制。",
         "problem": "不同射孔与流量配置产生怎样的流动声学特征，DAS 信号能否为非均匀进液提供判别依据？研究将射流模拟与多工况实验信号对照，分析流动结构、压力脉动和频谱之间的联系。",
-        "formulation": [
-          {
-            "equation": "∇·u = 0;     ρ(∂u/∂t + u·∇u) = −∇p + ∇·τeff",
-            "description": "流场以不可压质量与动量守恒描述，τeff 表示包含黏性与 LES 亚格子贡献的有效应力；声学扰动采用 APE 分析。"
-          },
-          {
-            "equation": "p′(t) = p(t) − p̄;     E(f) ∝ |FFT[p′(t)]|²",
-            "description": "以压力脉动及其频域能量表征流动声学响应，并与经过降噪、滤波的 DAS 实测信号进行时频对照。"
-          }
-        ],
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
@@ -564,16 +534,6 @@ window.SITE = {
         "methods": "STAR-CCM+ · LES / APE · MATLAB · FFT · Wavelet packet denoising",
         "findings": "Examined acoustic responses across flow rates and perforation configurations, providing simulation and experimental evidence for interpreting nonuniform inflow from DAS signals. Applicability depends on the tested flow and sensing conditions.",
         "problem": "How do perforation and flow-rate configurations affect flow-acoustic signatures, and what can DAS signals reveal about nonuniform inflow? The study compares simulated jets with experimental signals to relate flow structures, pressure fluctuations and spectra.",
-        "formulation": [
-          {
-            "equation": "∇·u = 0;     ρ(∂u/∂t + u·∇u) = −∇p + ∇·τeff",
-            "description": "Incompressible continuity and momentum balance describe the flow. τeff includes viscous and LES subgrid contributions; acoustic perturbations are analyzed with APE."
-          },
-          {
-            "equation": "p′(t) = p(t) − p̄;     E(f) ∝ |FFT[p′(t)]|²",
-            "description": "Pressure fluctuations and spectral energy characterize the flow-acoustic response for comparison with denoised and filtered DAS measurements."
-          }
-        ],
         "codeScope": "No public source-code repository is currently linked for this project. Methods, selected figures and results are available here."
       },
       "gallery": [
@@ -607,6 +567,16 @@ window.SITE = {
           "en": "Flow experiment setup",
           "source": ""
         }
+      ],
+      "formulation": [
+        {
+          "latex": "\\begin{aligned}\n\\nabla\\!\\cdot\\!\\mathbf{u} &= 0, \\\\\n\\rho\\left(\\frac{\\partial \\mathbf{u}}{\\partial t} +(\\mathbf{u}\\!\\cdot\\!\\nabla)\\mathbf{u}\\right)\n &= -\\nabla p + \\nabla\\!\\cdot\\!\\boldsymbol{\\tau}_{\\mathrm{eff}}.\n\\end{aligned}",
+          "description": "Incompressible continuity and momentum balance describe the jet. The effective stress \\(\\boldsymbol{\\tau}_{\\mathrm{eff}}\\) includes viscous and LES subgrid contributions. Acoustic perturbations are analyzed with the acoustic perturbation equations (APE)."
+        },
+        {
+          "latex": "p'(t)=p(t)-\\bar{p},\\qquad E(f)\\propto\\left|\\mathcal{F}\\{p'\\}(f)\\right|^2",
+          "description": "Pressure fluctuations \\(p'\\) and their spectral energy \\(E(f)\\) characterize the flow-acoustic response for comparison with denoised and filtered DAS measurements."
+        }
       ]
     },
     {
@@ -638,16 +608,6 @@ window.SITE = {
         "methods": "Rock mechanics · CFD–DEM · Particle transport · Saucier criteria",
         "findings": "将实验表征与数值分析结合，用于比较研究案例中的出砂风险和防砂参数。具体筛管建议依赖于给定储层、粒度分布和生产条件。",
         "problem": "疏松砂岩在生产中为何出砂，怎样结合地层与颗粒特征选择防砂参数？研究把岩心实验、储层力学与流体–颗粒耦合模拟结合，比较给定油田案例的出砂风险和防砂方案。",
-        "formulation": [
-          {
-            "equation": "∂(εf ρf)/∂t + ∇·(εf ρf uf) = 0",
-            "description": "流体相采用体积分数加权的质量守恒，εf 为流体体积分数；CFD 求得的流场与颗粒运动相耦合。"
-          },
-          {
-            "equation": "mᵢ dvᵢ/dt = Ffluid,ᵢ + Fcontact,ᵢ + mᵢ g",
-            "description": "DEM 对颗粒逐个求解运动，颗粒受流体作用力、接触力和重力；结合粒度分布与防砂准则比较参数。"
-          }
-        ],
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
@@ -665,16 +625,6 @@ window.SITE = {
         "methods": "Rock mechanics · CFD–DEM · Particle transport · Saucier criteria",
         "findings": "Combined experimental characterization and numerical analysis to compare sand-production risk and sand-control parameters in the study case. Screen recommendations are specific to the reservoir properties, grain-size distributions, and production conditions considered.",
         "problem": "Why does unconsolidated sandstone produce sand during operation, and how can formation and grain characteristics guide sand-control parameters? Core experiments, reservoir mechanics and coupled flow–particle simulations are combined for the studied field case.",
-        "formulation": [
-          {
-            "equation": "∂(εf ρf)/∂t + ∇·(εf ρf uf) = 0",
-            "description": "Fluid mass conservation is weighted by the fluid volume fraction εf. The CFD flow field couples to particle motion."
-          },
-          {
-            "equation": "mᵢ dvᵢ/dt = Ffluid,ᵢ + Fcontact,ᵢ + mᵢ g",
-            "description": "DEM resolves particle motion under fluid, contact and gravitational forces. Grain-size distributions and sand-control criteria inform the parameter comparison."
-          }
-        ],
         "codeScope": "No public source-code repository is currently linked for this project. Methods, selected figures and results are available here."
       },
       "gallery": [
@@ -707,6 +657,16 @@ window.SITE = {
           "zh": "生产压差与挡砂精度的影响",
           "en": "Effects of drawdown and screen size",
           "source": "Master’s thesis · Fig. 4.10"
+        }
+      ],
+      "formulation": [
+        {
+          "latex": "\\frac{\\partial(\\varepsilon_f\\rho_f)}{\\partial t} + \\nabla\\!\\cdot\\!(\\varepsilon_f\\rho_f\\mathbf{u}_f) = 0",
+          "description": "Fluid mass conservation is weighted by the local fluid volume fraction \\(\\varepsilon_f\\). The CFD flow field is coupled to particle motion."
+        },
+        {
+          "latex": "m_i\\frac{\\mathrm{d}\\mathbf{v}_i}{\\mathrm{d}t}=\\mathbf{F}_{\\mathrm{fluid},i}+\\mathbf{F}_{\\mathrm{contact},i}+m_i\\mathbf{g}",
+          "description": "DEM resolves individual particle motion under fluid forces, contact forces, and gravity. Grain-size distributions and sand-control criteria inform the parameter comparison."
         }
       ]
     },
@@ -744,16 +704,6 @@ window.SITE = {
         ],
         "resultScope": "两篇论文采用不同任务和指标，结果分别对应各自的数值数据与海况。",
         "problem": "如何降低深水立管与动态脐带缆反复分析的计算成本，并支持设计比较？两个独立研究分别建立 GNN 立管响应代理和 BP 脐带缆代理，后者进一步结合贝叶斯优化研究布置。",
-        "formulation": [
-          {
-            "equation": "ŷriser = fθ(x, G);     ŷumbilical = gφ(x)",
-            "description": "x 为各研究的工况与设计输入，G 为立管离散图结构，ŷ 为相应结构响应向量。GNN 与 BP 对应不同任务、数据和输出，不能合并为同一模型或直接比较误差。"
-          },
-          {
-            "equation": "x* ∈ arg minₓ J(gφ(x)),     x ∈ Ω",
-            "description": "脐带缆布置可表述为在给定设计域 Ω 内搜索代理模型响应对应的设计目标 J；具体目标与约束以该论文的设置为准。"
-          }
-        ],
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
@@ -776,16 +726,6 @@ window.SITE = {
         ],
         "resultScope": "The studies use different tasks and metrics; results apply to their respective numerical datasets and sea states.",
         "problem": "How can repeated analyses of deepwater risers and dynamic umbilicals be accelerated for design comparison? Two independent studies develop a GNN riser surrogate and a BP umbilical surrogate, with Bayesian optimization used in the latter design study.",
-        "formulation": [
-          {
-            "equation": "ŷriser = fθ(x, G);     ŷumbilical = gφ(x)",
-            "description": "x denotes each study’s operating and design inputs, G the discretized riser graph, and ŷ the corresponding structural response. The tasks, datasets and outputs remain distinct."
-          },
-          {
-            "equation": "x* ∈ arg minₓ J(gφ(x)),     x ∈ Ω",
-            "description": "Umbilical layout search is expressed over a prescribed design domain Ω using the surrogate response and design objective J. The paper defines the specific objectives and constraints."
-          }
-        ],
         "codeScope": "No public source-code repository is currently linked for this project. Methods, selected figures and results are available here."
       },
       "gallery": [
@@ -847,6 +787,16 @@ window.SITE = {
           "label": "BP · OTC Asia 2024",
           "url": "https://doi.org/10.4043/34673-ms"
         }
+      ],
+      "formulation": [
+        {
+          "latex": "\\hat{\\mathbf{y}}_{\\mathrm{riser}}=f_\\theta(\\mathbf{x},\\mathcal{G}),\\qquad \\hat{\\mathbf{y}}_{\\mathrm{umbilical}}=g_\\phi(\\mathbf{x})",
+          "description": "The surrogates map operating and design inputs \\(\\mathbf{x}\\) to structural responses. The riser model also uses its discretized graph \\(\\mathcal{G}\\). Each study defines its own inputs, outputs, and dataset."
+        },
+        {
+          "latex": "\\mathbf{x}^{*}\\in\\operatorname*{arg\\,min}_{\\mathbf{x}\\in\\Omega} J\\bigl(g_\\phi(\\mathbf{x})\\bigr)",
+          "description": "For the umbilical study, the design objective \\(J\\) is evaluated from the surrogate prediction over the prescribed design domain \\(\\Omega\\)."
+        }
       ]
     },
     {
@@ -874,16 +824,6 @@ window.SITE = {
         "findings": "图中展示已有项目材料中的预测曲线、误差与相关性分析。结果针对给定数据与划分设置，不作为长期产能或其他油气田泛化性能的保证。",
         "alt": "时序预测曲线对比",
         "problem": "如何从生产动态数据中提取有效的时序信息，改善给定数据范围内的产气量预测？项目围绕数据清洗、特征分析和时序模型，对 LSTM 及优化模型进行比较。",
-        "formulation": [
-          {
-            "equation": "xt = [zt−T+1, …, zt];     ŷt+1 = fθ(xt)",
-            "description": "zt 表示观测特征向量，T 为时间窗长度，y 为待预测产气量；LSTM 将历史窗口映射为下一时刻输出。"
-          },
-          {
-            "equation": "MSE = (1/n) Σᵢ (ŷᵢ − yᵢ)²",
-            "description": "平方误差量化预测偏差。时间划分和仅用训练段拟合的预处理，需要在评价之前明确；合成代码示例不复现项目图中的性能指标。"
-          }
-        ],
         "codeScope": "已公开原项目中的 SimpleLSTM、独立滑窗函数和合成训练/推断示例。该仓库不包含完整 VMD/SSA 优化流程、生产数据、训练权重或完整桌面软件。"
       },
       "en": {
@@ -900,16 +840,6 @@ window.SITE = {
         "findings": "The figures show prediction curves, errors, and correlation analysis from existing project materials. Results depend on the specified data and evaluation setup and do not guarantee long-term production or performance in other fields.",
         "alt": "Comparison of time-series predictions",
         "problem": "How can production records provide useful temporal information for gas-production forecasting within the observed data regime? The project compares LSTM and optimized models through data cleaning, feature analysis and sequence modelling.",
-        "formulation": [
-          {
-            "equation": "xt = [zt−T+1, …, zt];     ŷt+1 = fθ(xt)",
-            "description": "zt is the observed feature vector, T the history length and y the production target. The LSTM maps a historical window to a next-step output."
-          },
-          {
-            "equation": "MSE = (1/n) Σᵢ (ŷᵢ − yᵢ)²",
-            "description": "Squared error measures prediction deviation. Temporal splits and training-only preprocessing must be specified before evaluation. The synthetic code example does not reproduce the performance figures."
-          }
-        ],
         "codeScope": "The public excerpt contains the original SimpleLSTM, an independent windowing function and a synthetic training/inference example. It excludes the full VMD/SSA optimization pipeline, production records, weights and complete desktop software."
       },
       "gallery": [
@@ -941,7 +871,17 @@ window.SITE = {
       "number": "06",
       "image": "assets/production-forecast-well.webp",
       "detailImage": "assets/production-forecast-well.webp",
-      "code": "https://github.com/xrnb2000/reservoir-production-ml"
+      "code": "https://github.com/xrnb2000/reservoir-production-ml",
+      "formulation": [
+        {
+          "latex": "\\mathbf{X}_t = (\\mathbf{z}_{t-T+1},\\ldots,\\mathbf{z}_t),\\qquad \\hat{y}_{t+1}=f_\\theta(\\mathbf{X}_t)",
+          "description": "The LSTM maps a window of \\(T\\) observed feature vectors \\(\\mathbf{z}_t\\) to the next-step gas production forecast \\(\\hat{y}_{t+1}\\)."
+        },
+        {
+          "latex": "\\mathrm{MSE}=\\frac{1}{n}\\sum_{i=1}^{n}\\bigl(\\hat{y}_i-y_i\\bigr)^2",
+          "description": "Mean squared error measures forecast deviation over the evaluated samples. Temporal splits and training-only preprocessing define the evaluation protocol."
+        }
+      ]
     },
     {
       "id": "swath-fin-design",
@@ -978,16 +918,6 @@ window.SITE = {
         "methods": "STAR-CCM+ · RANS / VOF · Overset Mesh · DFBI · 阻力分解 · 垂荡 / 纵摇响应分析",
         "findings": "规则波下，6° / −3° 组合的阻力和纵摇周期幅值最小，但最低平均阻力与最低平均纵摇角分别对应另外两组攻角。稳定鳍设计需要结合阻力与运动响应目标权衡；不能将某一指标的最优组合视为所有工况的统一最优。静水与规则波结果分别讨论。",
         "problem": "怎样选择 SWATH 首尾稳定鳍的攻角，使阻力与纵向运动响应得到合理权衡？本科毕设先研究静水基线，再比较规则波下四组攻角的平均阻力和运动幅值。",
-        "formulation": [
-          {
-            "equation": "∇·u = 0;     ∂α/∂t + ∇·(αu) = 0",
-            "description": "采用不可压 RANS 流场、VOF 相体积分数 α 描述自由液面，并通过 DFBI 耦合船体刚体运动；设计变量为首鳍与尾鳍攻角。"
-          },
-          {
-            "equation": "R̄ = (1/T) ∫[t₀,t₀+T] R(t)dt;     θ̄ = (1/T) ∫[t₀,t₀+T] θ(t)dt",
-            "description": "对 30–50 s 稳定时间窗统计平均阻力 R̄、平均纵摇角 θ̄ 与各自周期幅值；按不同指标比较四组配置，而不预设单一加权最优目标。"
-          }
-        ],
         "codeScope": "暂无公开源码仓库；目前公开的是研究方法、精选图片与结果。"
       },
       "en": {
@@ -1010,16 +940,6 @@ window.SITE = {
         "methods": "STAR-CCM+ · RANS / VOF · Overset Mesh · DFBI · Resistance decomposition · Heave / pitch response analysis",
         "findings": "In the tested regular waves, 6° / −3° minimizes cyclic resistance and pitch amplitudes, while the lowest mean resistance and mean pitch occur at other angles. Fin design therefore involves a trade-off between resistance and motion objectives. A setting favored by one metric is not a universal optimum. Calm-water and regular-wave results are treated separately.",
         "problem": "How should SWATH bow and stern fin angles be chosen to balance resistance and longitudinal motion? The undergraduate thesis first studies calm-water baselines, then compares four fin-angle combinations in regular waves.",
-        "formulation": [
-          {
-            "equation": "∇·u = 0;     ∂α/∂t + ∇·(αu) = 0",
-            "description": "Incompressible RANS and VOF phase fraction α describe the free-surface flow, coupled to rigid-body motion with DFBI. The design variables are the bow and stern fin angles."
-          },
-          {
-            "equation": "R̄ = (1/T) ∫[t₀,t₀+T] R(t)dt;     θ̄ = (1/T) ∫[t₀,t₀+T] θ(t)dt",
-            "description": "Mean resistance R̄, mean pitch θ̄ and their cyclic amplitudes are evaluated over the 30–50 s window. The four configurations are compared by separate metrics rather than a prescribed weighted optimum."
-          }
-        ],
         "codeScope": "No public source-code repository is currently linked for this project. Methods, selected figures and results are available here."
       },
       "gallery": [
@@ -1064,6 +984,16 @@ window.SITE = {
           "zh": "四组稳定鳍攻角的平均纵摇角",
           "en": "Mean pitch across four fin-angle combinations",
           "source": "B.Eng. thesis · Fig. 5.10(d)"
+        }
+      ],
+      "formulation": [
+        {
+          "latex": "\\nabla\\!\\cdot\\!\\mathbf{u}=0,\\qquad \\frac{\\partial\\alpha}{\\partial t}+\\nabla\\!\\cdot\\!(\\alpha\\mathbf{u})=0",
+          "description": "Incompressible RANS describes the flow, and the VOF phase fraction \\(\\alpha\\) tracks the free surface. DFBI couples the flow to rigid-body motion. The design variables are the bow and stern fin angles."
+        },
+        {
+          "latex": "\\begin{aligned}\n\\bar{R} &= \\frac{1}{T}\\int_{t_0}^{t_0+T} R(t)\\,\\mathrm{d}t, \\\\\n\\bar{\\theta} &= \\frac{1}{T}\\int_{t_0}^{t_0+T} \\theta(t)\\,\\mathrm{d}t.\n\\end{aligned}",
+          "description": "Mean resistance \\(\\bar{R}\\), mean pitch \\(\\bar{\\theta}\\), and the associated cyclic amplitudes are evaluated over the 30–50 s window. Each of the four fin configurations is compared on these individual metrics."
         }
       ]
     }
